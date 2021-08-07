@@ -12,6 +12,8 @@ There are a number of tools for organizing and maintaining `Articledb`. These in
 
 The look of `Articledb` is theme-able, with a number of themes pre-installed. See [adb](https://github.com/kriztioan/adb) for more details.
 
+![Article Database in Action](ArticleDatabase.png "Article Database in Action")
+
 ## Usage
 
 Building `Articledb` has the following dependencies:
