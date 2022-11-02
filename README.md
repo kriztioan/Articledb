@@ -24,6 +24,7 @@ Building `Articledb` has the following dependencies:
 4. `jemalloc`
 5. `openssl`
 6. `rapidjson`
+7. `pkg-config`
 
 The application can be build using `Xcode` or from the command line with:
 
@@ -37,8 +38,8 @@ For the latter, the `Articledb` application is found in the `build/Release` fold
 
 1. The web server port number is set  to `7878` by default, but can be changed under ``→`Preferences`, which will sync it with [adb](https://github.com/kriztioan/adb). However, changing the port number from within [adb](https://github.com/kriztioan/adb) at `Config→General→Base URL` will *not* sync with the web server.
 2. The PEM certificate file used by `Articledb` defaults to `/private/etc/ssl/cert.pem`, change if needed under `Config→DOI CrossRef→PEM`.
-3. The `GNU` C++ compiler is hardcoded to `g++-11` in `adb/CMakeLists.txt`, change if needed.
-4. The `OPENSSL_ROOT_DIR` is hardcoded to `/usr/local/Cellar/openssl@1.1/1.1.1k/` in `adb/CMakeLists.txt`, change if needed.
+3. The `GNU` C++ compiler is hardcoded to `g++-12` in `adb/CMakeLists.txt`, change if needed.
+4. The `OPENSSL_ROOT_DIR` is hardcoded to `/usr/local/Cellar/openssl@3/3.0.7/` in `adb/CMakeLists.txt`, change if needed.
 
 ## BSD-3 License
 
