@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -2058,8 +2058,9 @@
 		61CA2CBB15F95D52005BE2EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = AdB;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Christiaan Boersma";
 			};
 			buildConfigurationList = 61CA2CBE15F95D52005BE2EC /* Build configuration list for PBXProject "Articledb" */;
@@ -2115,7 +2116,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "PRODUCT_DIR=adb\nTARGET_DIR=\"$SRCROOT\"/web\nCONFIG_FILE=\"$TARGET_DIR\"/AdB.cfg\nLOG_FILE=\"$TARGET_DIR\"/error.log\nSOURCE_DIR=adb\nBUILD_DIR=build\ncd \"$SOURCE_DIR\"\n[ ! -d \"$BUILD_DIR\" ] && mkdir \"$BUILD_DIR\"\ncd \"$BUILD_DIR\"\nif ! which cmake > /dev/null; then\n  echo \"error: cmake is missing\"\n  exit 1\nfi\ncmake ../\nif ! which make > /dev/null; then\n  echo \"error: make is missing\"\n  exit 1\nfi\nmake\nmv \"$PRODUCT_DIR\" \"$TARGET_DIR\"\ntouch \"$LOG_FILE\"\ncat > \"$CONFIG_FILE\"<< EOF\n\\$password = \"\"\n\\$username = \"user\"\n\\$expire = \"31536000\"\n\\$msword = \"Sources.xml\"\n\\$bibtex = \"data/bibliography.bib\"\n\\$key = \"ADScode\"\n\\$table = \"false\"\n\\$nauthors = \"3\"\n\\$pem = \"/private/etc/ssl/cert.pem\"\n\\$data = \"data/database.dat\"\n\\$base = \"./\"\n\\$doicrossrefurl = \"api.crossref.org\"\n\\$abbreviation = \"data/AA.abr\"\n\\$doicrossrefscore = \"19\"\n\\$save = \"true\"\n\\$plugins = \"plugins/\"\n\\$baseurl = \"http://localhost:7878/\"\n\\$scheme = \"Default\"\n\\$administrator = \"christiaanboersma@hotmail.com\"\n\\$adsurl = \"ui.adsabs.harvard.edu\"\n\\$adstoken = \"\"\n\\$translate = \"true\"\n\\$doiurl = \"dx.doi.org\"\n\\$text = \"data/references.txt\"\n\\$doilookupurl = \"data.crossref.org\"\n\nEOF\n";
+			shellScript = "PRODUCT_DIR=adb\nTARGET_DIR=\"$SRCROOT\"/web\nCONFIG_FILE=\"$TARGET_DIR\"/AdB.cfg\nLOG_FILE=\"$TARGET_DIR\"/error.log\nSOURCE_DIR=adb\nBUILD_DIR=build\ncd \"$SOURCE_DIR\"\n[ ! -d \"$BUILD_DIR\" ] && mkdir \"$BUILD_DIR\"\ncd \"$BUILD_DIR\"\nif ! which cmake > /dev/null; then\n  echo \"error: cmake is missing\"\n  exit 1\nfi\ncmake ../\nif ! which make > /dev/null; then\n  echo \"error: make is missing\"\n  exit 1\nfi\nmake\nrm -rf \"$TARGET_DIR\"\nmv \"$PRODUCT_DIR\" \"$TARGET_DIR\"\ntouch \"$LOG_FILE\"\ncat > \"$CONFIG_FILE\"<< EOF\n\\$password = \"\"\n\\$username = \"user\"\n\\$expire = \"31536000\"\n\\$msword = \"Sources.xml\"\n\\$bibtex = \"data/bibliography.bib\"\n\\$key = \"ADScode\"\n\\$table = \"false\"\n\\$nauthors = \"3\"\n\\$pem = \"/private/etc/ssl/cert.pem\"\n\\$data = \"data/database.dat\"\n\\$base = \"./\"\n\\$doicrossrefurl = \"api.crossref.org\"\n\\$abbreviation = \"data/AA.abr\"\n\\$doicrossrefscore = \"19\"\n\\$save = \"true\"\n\\$plugins = \"plugins/\"\n\\$baseurl = \"http://localhost:7878/\"\n\\$scheme = \"Default\"\n\\$administrator = \"christiaanboersma@hotmail.com\"\n\\$adsurl = \"ui.adsabs.harvard.edu\"\n\\$adstoken = \"\"\n\\$translate = \"true\"\n\\$doiurl = \"dx.doi.org\"\n\\$text = \"data/references.txt\"\n\\$doilookupurl = \"data.crossref.org\"\n\nEOF\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2212,6 +2213,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -2256,6 +2258,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Release;
 		};
