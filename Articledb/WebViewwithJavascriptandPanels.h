@@ -16,5 +16,6 @@
 
 @interface WebViewwithJavascriptandPanels : WKWebView <WKNavigationDelegate, WKScriptMessageHandler>
 @property (nonatomic, retain) FindPanelWindowController *findpanelwindowcontroller;
+@property (nonatomic, retain) NSString *saveName;
 @end
 #endif // End of WEBVIEWWITHJAVASCRIPTANDPANELS_H_
