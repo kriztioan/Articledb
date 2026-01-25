@@ -121,7 +121,8 @@
     savePanel.showsHiddenFiles = NO;
     savePanel.allowedFileTypes = @[@"com.adobe.pdf"];
     savePanel.allowsOtherFileTypes = NO;
-    
+    savePanel.nameFieldStringValue = @"AdB.pdf";
+
     [savePanel beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse result) {
       
       if (result == NSModalResponseOK) {
