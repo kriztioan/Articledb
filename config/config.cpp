@@ -71,8 +71,8 @@ ERROR_CODE writeConfigFile(const char *filename, std::string config, std::string
     config = decodeURL(config);
 	
     // If password change then encrypt
-    std::string  password = getvalue("password", config);
-    if(password.length() > 0) {
+    std::string password = getvalue("password", config);
+    if(!password.empty()) {
       const char alphanum[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
       uint32_t upperbound = (uint32_t) strlen(alphanum);
       char salt[3];
@@ -81,14 +81,18 @@ ERROR_CODE writeConfigFile(const char *filename, std::string config, std::string
       salt[2] = '\0';
       config = setvalue("password", crypt(password.c_str(), salt), config);
     }
-    else
-        config = setvalue("password", getvalue("password", oldconfig).c_str(), config);
-    
+    else {
+      password = getvalue("password", oldconfig);
+      if (!password.empty()){
+        config = setvalue("password", password.c_str(), config);
+      }
+    }
     FILE *file = NULL;
     
-    if((file = std::fopen(filename, "w")) == NULL)
-        return(CONFIG_WRITE);
-    
+    if((file = std::fopen(filename, "w")) == NULL){
+      return(CONFIG_WRITE);
+    }
+
     int fd = fileno(file);
     
     flock(fd, LOCK_EX);
