@@ -8283,8 +8283,8 @@ static const struct {
     {".sgm", 4, "text/sgml"},
     {".shtm", 5, "text/html"},
     {".shtml", 6, "text/html"},
-    {".txt", 4, "text/plain"},
-    {".xml", 4, "text/xml"},
+    {".txt", 4, "text/plain; charset=utf-8"},
+    {".xml", 4, "text/xml; charset=utf-8"},
 
     /* video */
     {".mov", 4, "video/quicktime"},
