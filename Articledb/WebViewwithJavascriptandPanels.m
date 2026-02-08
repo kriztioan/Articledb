@@ -19,8 +19,11 @@
 
   [self.configuration.userContentController addScriptMessageHandler:self
                                                                name:@"Blob"];
-
   self.navigationDelegate = self;
+
+  self.wantsLayer = YES;
+
+  self.layer.backgroundColor = NSColor.darkGrayColor.CGColor;
 
   self.findpanelwindowcontroller = [[FindPanelWindowController alloc] init];
 
