@@ -23,6 +23,8 @@
 
   self.wantsLayer = YES;
 
+  self.alphaValue = 0.0;
+
   self.layer.backgroundColor = NSColor.darkGrayColor.CGColor;
 
   self.navigationDelegate = self;
@@ -231,5 +233,15 @@
                     completionHandler(NO);
                   }
                 }];
+}
+
+- (void)webView:(WKWebView *)webView
+    didFinishNavigation:(WKNavigation *)navigation {
+  [NSAnimationContext
+      runAnimationGroup:^(NSAnimationContext *context) {
+        context.duration = 0.1;
+        webView.animator.alphaValue = 1.0;
+      }
+      completionHandler:nil];
 }
 @end
