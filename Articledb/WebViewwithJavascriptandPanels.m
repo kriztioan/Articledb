@@ -239,7 +239,7 @@
     didFinishNavigation:(WKNavigation *)navigation {
   [NSAnimationContext
       runAnimationGroup:^(NSAnimationContext *context) {
-        context.duration = 0.1;
+        context.duration = 0.2;
         webView.animator.alphaValue = 1.0;
       }
       completionHandler:nil];
