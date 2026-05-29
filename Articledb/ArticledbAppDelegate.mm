@@ -134,9 +134,10 @@
   return YES;
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification {
-
+- (NSApplicationTerminateReply)applicationShouldTerminate:
+    (NSNotification *)notification {
   [self stopServer];
+  return NSTerminateNow;
 }
 
 - (IBAction)restart:(id)sender {
